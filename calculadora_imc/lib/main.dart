@@ -121,7 +121,7 @@ class _CalculadoraIMCState extends State<CalculadoraIMC> {
     }
   }
 
-  // Abre painel com todas as faixas e descrições (acionado pelo botão "hambúrguer")
+  // Abre painel com todas as faixas e descrições (acionado pelo botão no canto da tela)
   void _mostrarTabelaIMC() {
     showModalBottomSheet(
       context: context,
@@ -205,7 +205,7 @@ class _CalculadoraIMCState extends State<CalculadoraIMC> {
         title: const Text('Calculadora de IMC'),
         centerTitle: true,
         actions: [
-          // Botão "hambúrguer" pequeno no canto direito
+          // Botão pequeno no canto direito
           IconButton(
             icon: const Icon(Icons.menu), // três riscos
             onPressed: _mostrarTabelaIMC,
@@ -248,7 +248,7 @@ class _CalculadoraIMCState extends State<CalculadoraIMC> {
                     child: Column(
                       children: [
                         Image.asset(
-                          'assets/images/m.png', // adicione esta imagem na pasta assets
+                          'assets/images/m.png', // imagem está na pasta assets
                           width: 70,
                           height: 70,
                         ),
@@ -273,7 +273,7 @@ class _CalculadoraIMCState extends State<CalculadoraIMC> {
                     child: Column(
                       children: [
                         Image.asset(
-                          'assets/images/f.png', // adicione esta imagem na pasta assets
+                          'assets/images/f.png', // imagem está na pasta assets
                           width: 70,
                           height: 70,
                         ),
