@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -292,10 +293,15 @@ class _CalculadoraIMCState extends State<CalculadoraIMC> {
             TextField(
               controller: _pesoController,
               keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              inputFormatters: [
+                // permite números, vírgula e ponto
+                FilteringTextInputFormatter.allow(RegExp(r'[\d,.]')),
+                LengthLimitingTextInputFormatter(5),
+              ],
               decoration: const InputDecoration(
                 labelText: 'Peso (kg)',
                 border: OutlineInputBorder(),
-                hintText: 'Ex: 70.5',
+                hintText: 'Ex: 70.5 ou 70,5',
               ),
             ),
 
@@ -305,6 +311,10 @@ class _CalculadoraIMCState extends State<CalculadoraIMC> {
             TextField(
               controller: _alturaController,
               keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d{0,2}')), // só números e ponto
+                LengthLimitingTextInputFormatter(4),
+              ],
               decoration: const InputDecoration(
                 labelText: 'Altura (m ou cm)',
                 border: OutlineInputBorder(),
